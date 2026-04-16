@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baringo Mega Mission</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f7fc;
+color:#333;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+background:#ee4949;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+header h1{
+font-size:28px;
+margin-bottom:5px;
+}
+
+/* HERO */
+.hero{
+height:80vh;
+background:url('images/all13.jpeg') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-overlay{
+background:rgba(0,0,0,0.55);
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+max-width:600px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+/* SECTIONS */
+section{
+padding:50px 10%;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+margin-bottom:40px;
+}
+
+/* ACTIVITIES */
+.activities ul{
+padding-left:20px;
+line-height:1.9;
+}
+
+/* GALLERY */
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+transition:0.3s ease;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#f13333;
+color:white;
+text-decoration:none;
+border-radius:25px;
+font-weight:600;
+transition:0.3s;
+border:none;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#16325c;
+}
+
+/* SECONDARY BUTTON */
+.btn.secondary{
+background:transparent;
+border:2px solid rgb(247, 58, 58);
+}
+
+.btn.secondary:hover{
+background:rgb(224, 130, 130);
+color:#1e3c72;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:black;
+color:white;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<h1>BARINGO MEGA MISSION</h1>
+<p>THEME: Grace that saves all nations (Titus 2:11)</p>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-overlay">
+    <h1>Baringo Mega Mission</h1>
+    <p>Transforming lives through evangelism, fellowship, and community service.</p>
+
+    <div class="hero-buttons">
+      <a href="#about" class="btn">Learn More</a>
+      <a href="open.html" class="btn secondary">View Gallery</a>
+    </div>
+  </div>
+</div>
+
+<section>
+
+<!-- ABOUT -->
+<div class="card" id="about">
+<h2>About the Mission</h2>
+<p>
+The Baringo Mega Mission was a powerful outreach initiative aimed at impacting the community through spiritual empowerment, social support, and leadership engagement. The mission involved different ministries working together to spread the Gospel and serve the community through evangelism, teaching, and fellowship.
+</p>
+</div>
+
+<!-- ACTIVITIES -->
+<div class="card">
+<h2>Activities That Took Place</h2>
+
+<ul>
+<li>Morning Devotions</li>
+<li>Door to Door Evangelism</li>
+<li>Crusades</li>
+<li>Revivals</li>
+<li>Sunday School Ministry</li>
+<li>High School Ministry</li>
+</ul>
+
+</div>
+
+<!-- GALLERY -->
+<div class="card" id="gallery">
+<h2>Photo Highlights</h2>
+
+<div class="gallery-grid">
+
+<a href="images/all13.jpeg" target="_blank"><img src="images/all13.jpeg" alt="Mission activity 1"></a>
+<a href="images/all12.jpeg" target="_blank"><img src="images/all12.jpeg" alt="Mission activity 2"></a>
+<a href="images/ALL2.jpeg" target="_blank"><img src="images/ALL2.jpeg" alt="Mission activity 3"></a>
+<a href="images/all7.jpeg" target="_blank"><img src="images/all7.jpeg" alt="Mission activity 4"></a>
+<a href="images/all9.jpeg" target="_blank"><img src="images/all9.jpeg" alt="Mission activity 5"></a>
+<a href="images/24.jpeg" target="_blank"><img src="images/24.jpeg" alt="Mission activity 6"></a>
+<a href="images/all11.jpeg" target="_blank"><img src="images/all11.jpeg" alt="Mission activity 7"></a>
+<a href="images/ALL1.jpeg" target="_blank"><img src="images/ALL1.jpeg" alt="Mission activity 8"></a>
+
+<a href="images/m1-copy.jpeg" target="_blank"><img src="images/all5.jpeg" alt="Mission activity 9"></a>
+<a href="images/m2.jpeg" target="_blank"><img src="images/m2.jpeg" alt="Prayer gathering"></a>
+<a href="images/m3.jpeg" target="_blank"><img src="images/m3.jpeg" alt="Church outreach"></a>
+<a href="images/m4.jpeg" target="_blank"><img src="images/m4.jpeg" alt="Community service"></a>
+<a href="images/dapash.jpeg" target="_blank"><img src="images/dapash.jpeg" alt="Mission closing ceremony"></a>
+
+</div>
+
+<p style="margin-top:20px;">
+For more photos, open the full gallery.
+</p>
+
+<div style="text-align:center;margin-top:20px;">
+<a href="open.html" target="_blank" class="btn">Open Full Gallery</a>
+</div>
+
+</div>
+
+<!-- REPORT -->
+<div class="card">
+<h2>Baringo Mega Mission Report</h2>
+
+<div style="text-align:center;margin-top:20px;">
+<a href="images/report.pdf" target="_blank" class="btn">VIEW DETAILS</a>
+</div>
+
+</div>
+
+<!-- BACK BUTTON -->
+<a href="index.html" class="btn">← Back to Home</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>&copy; 2026 Noretsoret Christian Union.</p>
+</footer>
+
+</body>
+</html>

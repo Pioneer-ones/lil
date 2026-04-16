@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Podcast | Noretsoret</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#dfd9d9;
+color:#222;
+padding-top:100px;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+z-index:1000;
+}
+
+header img{
+width:110px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+}
+
+nav a:hover{
+color:#2a5298;
+}
+
+/* SECTION */
+
+section{
+padding:90px 20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:60px;
+color:#093997;
+font-size:32px;
+}
+
+/* PODCAST GRID */
+
+.podcast-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+/* PODCAST CARD */
+
+.podcast-card{
+background:white;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+padding:20px;
+transition:0.3s;
+text-align:center;
+}
+
+.podcast-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 28px rgba(0,0,0,0.15);
+}
+
+.podcast-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.podcast-card h3{
+color:#1e3c72;
+margin-bottom:10px;
+font-size:18px;
+}
+
+.podcast-card p{
+font-size:14px;
+color:#555;
+margin-bottom:15px;
+}
+
+audio{
+width:100%;
+outline:none;
+}
+
+/* FOOTER */
+
+footer{
+background:#1e3c72;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
+font-size:14px;
+font-style: initial;
+}
+
+footer p{
+margin:4px 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="images/hey.png" alt="Noretsoret Logo">
+
+<nav>
+<a href="hello.html">Home</a>
+</nav>
+
+</header>
+
+
+<section>
+
+<div class="container">
+
+<h2>PODCASTS</h2>
+
+<div class="podcast-grid">
+
+<!-- PODCAST 1 -->
+<div class="podcast-card">
+<img src="images/podcast1.jpeg" alt="Podcast">
+<h3>Faith & Growth</h3>
+<p>Growing spiritually and strengthening your walk with God.</p>
+<audio controls>
+<source src="audio/podcast1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
+
+<!-- PODCAST 2 -->
+<div class="podcast-card">
+<img src="images/podcast2.jpeg" alt="Podcast">
+<h3>Prayer Life</h3>
+<p>Understanding the power and importance of prayer.</p>
+<audio controls>
+<source src="audio/podcast2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
+
+<!-- PODCAST 3 -->
+<div class="podcast-card">
+<img src="images/podcast3.jpeg" alt="Podcast">
+<h3>Campus Ministry</h3>
+<p>Impacting lives through campus fellowship and outreach.</p>
+<audio controls>
+<source src="audio/podcast3.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>NORETSORET – University of Nairobi</p>
+<p>Telephone No: 0768046206 | 0717495802</p>
+
+<p>Email: uonnoresoret@gmail.com © 
+<script>document.write(new Date().getFullYear())</script>
+Noretsoret | All Rights Reserved</p>
+
+</footer>
+
+
+</body>
+</html>

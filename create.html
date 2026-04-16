@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Create Account</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+width:350px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#1e3c72;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#163060;
+}
+
+#message{
+margin-top:15px;
+color:green;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="password" id="password" placeholder="Password" required>
+
+<button type="submit">Create Account</button>
+
+</form>
+
+<p id="message"></p>
+
+<p>Already have an account?</p>
+
+<a href="login.html">Login</a>
+
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+let users=JSON.parse(localStorage.getItem("users")) || [];
+
+let exists=users.find(user=>user.email===email);
+
+if(exists){
+
+document.getElementById("message").style.color="red";
+document.getElementById("message").innerText="This account already exists. Please login.";
+
+return;
+
+}
+
+users.push({name:name,email:email,password:password});
+
+localStorage.setItem("users",JSON.stringify(users));
+
+document.getElementById("message").style.color="green";
+document.getElementById("message").innerText="You have successfully created an account. Now login.";
+
+document.getElementById("registerForm").reset();
+
+});
+
+</script>
+
+</body>
+
+</html>

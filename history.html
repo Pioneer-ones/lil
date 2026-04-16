@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our History | Noretsoret</title>
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#222;
+padding-top:90px;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgb(34, 4, 145);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+z-index:1000;
+}
+
+header img{
+width:100px;
+}
+
+.top-navbar{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.top-navbar a{
+color:white;
+text-decoration:none;
+font-weight:500;
+font-size:15px;
+}
+
+.top-navbar a:hover{
+color:#ffd700;
+}
+
+/* DROPDOWN */
+.dropdown {
+position: relative;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #333131;
+min-width: 160px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+border-radius: 8px;
+flex-direction: column;
+z-index: 1000;
+}
+
+.dropdown-content a {
+color: white;
+padding: 12px 20px;
+text-decoration:none;
+display:block;
+}
+
+.dropdown-content a:hover {
+background-color: #042152;
+}
+
+.dropdown:hover .dropdown-content {
+display:flex;
+}
+
+/* HERO SECTION WITH IMAGE */
+.hero{
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+
+background:linear-gradient(rgba(30,60,114,0.7),rgba(30,60,114,0.7)),
+url("images/Photographer Spotlight_ Bill Ray's Classic Celebrity Portraits - LIFE.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+color:white;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+max-width:600px;
+}
+
+/* SECTIONS */
+section{
+padding:100px 20px;
+scroll-margin-top:100px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+color:#042152;
+margin-bottom:30px;
+}
+
+p{
+line-height:1.7;
+margin-bottom:20px;
+text-align:justify;
+}
+
+/* FOOTER */
+footer{
+background:#060c16;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+html {
+scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="images/hey.png" alt="Noretsoret Logo">
+
+<div class="top-navbar">
+  <a href="index.html">Home</a>
+
+  <div class="dropdown">
+    <div class="dropdown-content">
+      <a href="history.html">Our History</a>
+    </div>
+  </div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 data-aos="fade-up">Our History</h1>
+  <p data-aos="fade-up" data-aos-delay="200">
+    Discover the journey and milestones of Noretsoret student team.
+  </p>
+</section>
+
+<!-- HISTORY CONTENT -->
+<section id="history">
+<div class="container">
+
+<p data-aos="fade-up" data-aos-delay="100">
+Noret Soret UoN is an evangelistic team in The University of Nairobi Christian Union, focusing on spreading the gospel of Christ Jesus mainly in the Northern and Southern Rift regions of Kenya and beyond. It has not only been life-changing but also a home for many. It has accommodated students from these regions and others.
+</p>
+
+<p data-aos="fade-up" data-aos-delay="200">
+Over the years, since its beginning in the late 1980s, with pioneers who are now prominent leaders in Kenya, the team has been a platform where many discover their purpose and calling. It has nurtured talents, shaped leadership skills, and brought together zealous believers in Christ Jesus as one family united to know God more and make Him known. It is truly a home, reflected in the saying, "Noret Soret is Home."
+</p>
+
+<p data-aos="fade-up" data-aos-delay="300">
+The team’s mission and vision have guided it year after year. The motto "Salvation for all" remains the ultimate goal, inspiring many missions that provide opportunities to evangelize, spread the gospel, and make disciples.
+
+Collaboration with other colleges and universities where Noret and Soret exist has strengthened unity. Noret Kenya and Soret Kenya bring together all university and college teams, hosting annual missions, conferences, and retreats. These moments foster connection, learning, and shared purpose.
+
+Students are full members during campus life and become associates after graduation, joining Noret Kenya, Soret Kenya, or both. With branches across the country, members can stay active regardless of location. Associates play a vital role in supporting students and strengthening unity.
+
+Noret Soret UoN continues to grow rapidly, with vibrant activities through which God impacts lives. Students leave campus morally grounded, spiritually aware, and intellectually equipped, ready to influence the world in God’s way.
+</p>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>NORETSORET University of Nairobi</p>
+<p>Telephone NO: 0768046206, 0717495802</p>
+<p>Email: uonnoresoret@gmail.com © <script>document.write(new Date().getFullYear())</script> Noretsoret | Designed by Onesmus Kipngetich</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ once:false });
+</script>
+
+</body>
+</html>

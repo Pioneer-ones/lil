@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noretsoret</title>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#222;
+padding-top:90px;
+}
+
+section{
+padding:100px 20px;
+scroll-margin-top:100px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:#f61c1c;
+}
+
+/* ================= NAVBAR ================= */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgb(229, 84, 84);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+z-index:1000;
+}
+
+.top-navbar{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.top-navbar a{
+color:white;
+text-decoration:none;
+font-weight:500;
+font-size:15px;
+}
+
+.top-navbar a:hover{
+color:#ffd700;
+}
+
+/* Desktop dropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333131;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #042152;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+@media(max-width:900px){
+.top-navbar{
+display:none;
+}
+}
+
+.menu-icon{
+display:flex;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+color:white;
+}
+
+.menu-icon h3{
+color:white;
+font-size:16px;
+}
+
+.menu-icon div{
+width:30px;
+height:3px;
+background:white;
+}
+
+/* ================= SIDE MENU ================= */
+nav{
+position:fixed;
+top:0;
+right:-260px;
+width:240px;
+height:100%;
+background:#4a4848; 
+display:flex;
+flex-direction:column;
+padding-top:40px;
+transition:0.3s;
+box-shadow:-5px 0 20px rgba(0,0,0,0.3);
+z-index:1000;
+overflow-y:auto;
+-webkit-overflow-scrolling: touch;
+}
+
+.menu-header{
+color:white;
+padding:20px;
+font-size:24px;
+font-weight:600;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:15px 25px;
+cursor:pointer;
+}
+
+nav a:hover{
+background:#042152;
+}
+
+/* Sub-links hidden by default */
+nav .sub-links{
+display:none;
+flex-direction:column;
+padding-left:20px;
+}
+
+nav .sub-links a{
+padding:10px 25px;
+}
+
+/* active side menu */
+nav.active{
+right:0;
+}
+
+/* ================= HERO ================= */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:rgb(153, 27, 27);
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:50%;
+left:50%;
+min-width:100%;
+min-height:100%;
+width:auto;
+height:auto;
+transform:translate(-50%,-50%);
+object-fit:cover;
+z-index:-2;
+display:none;
+}
+
+.hero video.active{
+display:block;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:-1;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+color:white;
+text-shadow:0 3px 10px rgba(0,0,0,0.7);
+}
+
+.hero p{
+color:white;
+font-size:18px;
+text-shadow:0 3px 10px rgba(213, 57, 57, 0.7);
+}
+
+.hero .sign-btn{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:rgb(224, 50, 50);
+color:#faf8f8;
+font-weight:600;
+cursor:pointer;
+margin:5px;
+position:relative;
+}
+
+.sign-dropdown{
+display:none;
+flex-direction:column;
+position:absolute;
+top:55px;
+background:white;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+z-index:10;
+}
+
+.sign-dropdown a{
+color:#222;
+padding:10px 20px;
+text-decoration:none;
+font-weight:500;
+}
+
+.sign-dropdown a:hover{
+background:#1e3c72;
+color:white;
+}
+
+@media(max-width:768px){
+header{
+padding:15px 20px;
+}
+.hero h1{
+font-size:32px;
+}
+section{
+padding:70px 20px;
+}
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* FORM */
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,select,textarea{
+padding:12px;
+border-radius:8px;
+border:1px solid #c7b1b1;
+}
+
+textarea{
+resize:vertical;
+}
+
+.submit-btn{
+background:#1e3c72;
+color:white;
+border:none;
+padding:12px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#060c16;
+color:white;
+text-align:center;
+padding:20px;
+}
+footer {
+  background: #060c16;
+  color: white;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-box h3 {
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.footer-box p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-box a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.footer-box a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+html {
+scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="images/hey.png" alt="Noretsoret Logo" width="100px">
+<div class="top-navbar">
+  <a href="#">Home</a>
+  <div class="dropdown">
+    <a href="#about us">About Us ▾</a>
+    <div class="dropdown-content">
+      <a href="#mission">Mission</a>
+      <a href="#vision">Vision</a>
+      <a href="history.html">Our History</a>
+      <a href="membership.html">Membership</a>
+      <a href="fellowship.html">Fellowships</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#leadership">Leadership ▾</a>
+    <div class="dropdown-content">
+      <a href="nasec.html">Executive</a>
+      <a href="#advisory">Advisory</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#gallery">Media ▾</a>
+    <div class="dropdown-content">
+      <a href="#all-media">All Media</a>
+      <a href="videos.html">Videos</a>
+      <a href="podcast.html">Podcast</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#constitution">Resources ▾</a>
+    <div class="dropdown-content">
+      <a href="events.html">Events</a>
+      <a href="search.html">Lyrics</a>
+      <a href="images/Bible - Multi Version Installer.exe">Holy Bible</a>
+      <a href="open.html">Gallery</a>
+    </div>
+  </div>
+
+  <a href="#register">Contact</a>
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+<h3>MENU</h3>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</header>
+
+<nav id="sideMenu">
+<div class="menu-header">MENU</div>
+
+<a href="index.html">Home</a>
+
+<a class="menu-toggle">About Us ▾</a>
+<div class="sub-links">
+  <a href="#mission">Mission</a>
+  <a href="#vision">Vision</a>
+  <a href="history.html">Our History</a>
+  <a href="membership.html">Membership</a>
+  <a href="fellowship.html">Fellowships</a>
+</div>
+
+<a class="menu-toggle">Leadership ▾</a>
+<div class="sub-links">
+  <a href="nasec.html">Executive</a>
+  <a href="#advisory">Advisory</a>
+</div>
+
+<a class="menu-toggle">Media ▾</a>
+<div class="sub-links">
+  <a href="#all-media">All Media</a>
+  <a href="videos.html">Videos</a>
+  <a href="podcast.html">Podcast</a>
+</div>
+
+<a class="menu-toggle">Resources ▾</a>
+<div class="sub-links">
+  <a href="events.html">Events</a>
+  <a href="search.html">Lyrics</a>
+  <a href="#holy bible">Holy Bible</a>
+  <a href="open.html">Gallery</a>
+</div>
+
+<a href="#register">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<video class="active" muted autoplay loop playsinline>
+<source src="videos/t.mp4" type="video/mp4">
+</video>
+
+<h1 data-aos="fade-up">Welcome to NORETSORET</h1>
+<p data-aos="fade-up" data-aos-delay="200">
+Empowering students. Building leaders. Creating impact.
+</p>
+
+<div style="margin-top:20px; position:relative;">
+<button class="sign-btn" onclick="toggleSignDropdown()" data-aos="fade-up" data-aos-delay="400">Sign In</button>
+<div id="signDropdown" class="sign-dropdown">
+<a href="login.html">Login</a>
+<a href="create.html">Register</a>
+</div>
+</div>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="introduction">
+<div class="container">
+<h2 data-aos="fade-up">INTRODUCTION</h2>
+<p data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+Noretsoret is a student-led union dedicated to empowering students, developing leadership skills, and creating positive community impact.
+</p>
+</div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="register">
+<div class="container">
+<h2 data-aos="fade-up">Contact Us</h2>
+<form id="contactForm" data-aos="fade-up" data-aos-delay="200">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" name="phone" placeholder="Your Phone Number" required>
+  <input type="text" name="subject" placeholder="Subject" required>
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <button class="submit-btn" type="submit">Send Message</button>
+</form>
+</div>
+</section>
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>About Us</h3>
+      <p>
+        Noretsoret is a student-led union at the University of Nairobi dedicated to
+        empowering students, developing leadership skills, and spreading the word of God
+        within and beyond the campus.
+      </p>
+      <h3>Mission</h3>
+      <p>To disciple members,to reach the whole world with the word of God</p>
+      <h3>Vision</h3>
+      <p>To be ambassadors and witnesses of Christ sharing the light of salvation in and out of campus </p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Location</h3>
+      <p><!-- Locations -->
+<div class="footer-box">
+  <h3>Our Campuses</h3>
+  <p>Main Campus (CBD)</p>
+  <p>Chiromo Campus</p>
+  <p>Kikuyu Campus</p>
+  <p>Upper Kabete Campus</p>
+  <p>Lower Kabete Campus</p>
+  <p>Parklands Campus</p>
+  <p>Kenya Science Campus</p>
+
+  <!-- Google Map -->
+  <iframe 
+    src="https://www.google.com/maps?q=University%20of%20Nairobi&output=embed"
+    width="100%" 
+    height="200" 
+    style="border:0; border-radius:10px; margin-top:10px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div></p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>Telephone: 0768046206,0717495802</p>
+      <p>Email: uonnoresoret@gmail.com</p>
+    </div>
+
+  </div>
+
+  <p class="footer-bottom">
+    © <script>document.write(new Date().getFullYear())</script> Noretsoret | Designed by Onesmus Kipngetich
+  </p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ once:false });
+
+// Toggle side menu
+function toggleMenu(){
+const menu = document.getElementById("sideMenu");
+menu.classList.toggle("active");
+document.querySelector(".menu-icon").setAttribute(
+  'aria-expanded', menu.classList.contains('active')
+);
+}
+
+// Toggle sign-in dropdown
+function toggleSignDropdown(){
+let dropdown = document.getElementById("signDropdown");
+dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+}
+
+// Close side menu or sign dropdown on outside click
+document.addEventListener("click", function(event) {
+const menu = document.getElementById("sideMenu");
+const menuIcon = document.querySelector(".menu-icon");
+const dropdown = document.getElementById("signDropdown");
+
+if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+menu.classList.remove("active");
+}
+
+if (!event.target.classList.contains('sign-btn') && !dropdown.contains(event.target)){
+dropdown.style.display = "none";
+}
+});
+
+// Collapsible side menu sub-links
+document.querySelectorAll('.menu-toggle').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const subLinks = this.nextElementSibling;
+    const isOpen = subLinks.style.display === 'flex';
+    document.querySelectorAll('nav .sub-links').forEach(sl => sl.style.display = 'none');
+    subLinks.style.display = isOpen ? 'none' : 'flex';
+  });
+});
+
+// Hero video logic
+let videos = document.querySelectorAll(".hero video");
+let current = 0;
+videos.forEach((video,index)=>{
+video.addEventListener("ended",()=>{
+videos[current].classList.remove("active");
+current = (current + 1) % videos.length;
+videos[current].classList.add("active");
+videos[current].play();
+});
+});
+
+// Loader hide
+window.addEventListener("load",()=>{
+document.getElementById("loader").style.display="none";
+});
+
+// Contact form submit response
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault(); // prevent actual submission
+  alert("Thank you! Your message has been received.");
+  this.reset(); // clear form
+});
+</script>
+
+<div id="loader">
+Loading...
+</div>
+
+</body>
+</html>

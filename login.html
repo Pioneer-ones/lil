@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body{
+    font-family: Arial;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box{
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #163060;
+}
+
+#loginMessage{
+    margin-top: 15px;
+    color: red;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+.show-password input {
+    width: auto;
+    margin-right: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Login</h2>
+
+<form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+
+    <!-- Show Password Checkbox -->
+    <label class="show-password">
+        <input type="checkbox" id="togglePassword"> Show Password
+    </label>
+
+    <button type="submit">Login</button>
+</form>
+
+<p id="loginMessage"></p>
+
+<p>Don't have an account?</p>
+<a href="create.html">Create Account</a>
+
+</div>
+
+<script>
+// Auto-fill saved email and password
+window.addEventListener("load", function(){
+    let savedEmail = localStorage.getItem("savedEmail");
+    let savedPassword = localStorage.getItem("savedPassword");
+
+    if(savedEmail) document.getElementById("loginEmail").value = savedEmail;
+    if(savedPassword) document.getElementById("loginPassword").value = savedPassword;
+});
+
+// Handle login
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let user = users.find(u => u.email === email && u.password === password);
+
+    if(user){
+        document.getElementById("loginMessage").style.color = "green";
+        document.getElementById("loginMessage").innerText = "Login successful!";
+
+        // Save credentials for next time
+        localStorage.setItem("savedEmail", email);
+        localStorage.setItem("savedPassword", password);
+
+        // Redirect to hello.html after 1 second
+        setTimeout(() => {
+            window.location.href = "hello.html";
+        }, 1000);
+    } else {
+        document.getElementById("loginMessage").style.color = "red";
+        document.getElementById("loginMessage").innerText = "Invalid email or password.";
+    }
+});
+
+// Toggle password visibility
+document.getElementById("togglePassword").addEventListener("change", function(){
+    let passwordField = document.getElementById("loginPassword");
+    passwordField.type = this.checked ? "text" : "password";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Lyrics | Noretsoret</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#222;
+padding-top:90px;
+}
+
+/* NAVBAR */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgb(34, 4, 145);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+/* SECTION */
+section{
+padding:100px 20px;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2{
+margin-bottom:20px;
+color:#093997;
+}
+
+/* SEARCH BOX */
+input{
+width:80%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+border-radius:25px;
+background:#1e3c72;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+button:hover{
+background:#093997;
+}
+
+/* FOOTER */
+footer{
+background:#060c16;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="images/hey.png" alt="Logo" width="100px">
+
+<nav>
+<a href="index.html">Home</a>
+</nav>
+</header>
+
+<section>
+<div class="container">
+
+<h2>Search Song Lyrics</h2>
+
+<input 
+type="text" 
+id="searchInput" 
+placeholder="Enter song name (e.g. Way Maker)"
+>
+
+<br>
+
+<button onclick="searchYouTube()">Search on YouTube</button>
+
+</div>
+</section>
+
+<footer>
+<p>NORETSORET University of Nairobi</p>
+<p>Telephone No: 0768046206, 0717495802</p>
+<p>Email: uonnoresoret@gmail.com © <script>document.write(new Date().getFullYear())</script></p>
+</footer>
+
+<script>
+function searchYouTube(){
+let query = document.getElementById("searchInput").value;
+
+if(query.trim() !== ""){
+let url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(query + " lyrics");
+window.open(url, "_blank");
+} else {
+alert("Please enter a song name");
+}
+}
+</script>
+
+</body>
+</html>

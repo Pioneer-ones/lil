@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Noretsoret</title>
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#222;
+padding-top:90px;
+}
+
+section{
+padding:100px 20px;
+scroll-margin-top:100px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:#093997;
+}
+
+/* NAVBAR */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgb(34, 4, 145);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+z-index:1000;
+}
+
+.top-navbar{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.top-navbar a{
+color:white;
+text-decoration:none;
+font-weight:500;
+font-size:15px;
+}
+
+.top-navbar a:hover{
+color:#ffd700;
+}
+
+.menu-icon{
+display:flex;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+color:white;
+}
+
+.menu-icon h3{
+color:white;
+font-size:16px;
+}
+
+.menu-icon div{
+width:30px;
+height:3px;
+background:white;
+}
+
+/* MOBILE MENU */
+@media(max-width:900px){
+.top-navbar{
+display:none;
+}
+
+nav{
+position:fixed;
+top:0;
+right:-260px;
+width:240px;
+height:100%;
+background:#333131;
+display:flex;
+flex-direction:column;
+padding-top:40px;
+transition:0.3s;
+}
+
+nav.active{
+right:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:15px 25px;
+}
+
+nav a:hover{
+background:#042152;
+}
+
+.menu-header{
+color:white;
+padding:15px 25px;
+cursor:pointer;
+font-weight:bold;
+}
+}
+
+/* HERO */
+.hero{
+height:50vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:rgb(34,4,145);
+color:white;
+text-align:center;
+}
+
+/* CONTACT FORM */
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input, textarea{
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+textarea{
+resize:vertical;
+}
+
+.submit-btn{
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:white;
+border:none;
+padding:14px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+opacity:0.9;
+transform:scale(1.05);
+}
+
+/* STATUS */
+#formStatus{
+text-align:center;
+margin-top:10px;
+font-size:14px;
+}
+
+.success{ color:green; }
+.error{ color:red; }
+
+/* FOOTER */
+footer{
+background:#060c16;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+html{
+scroll-behavior:smooth;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="images/hey.png" width="100px">
+
+<div class="top-navbar">
+<a href="index.html">Home</a>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+<h1 data-aos="fade-up">Contact Noretsoret</h1>
+<p data-aos="fade-up" data-aos-delay="200">
+We’d love to hear from you. Reach out for inquiries or feedback.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<h2 data-aos="fade-up">Get In Touch</h2>
+
+<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-aos="fade-up">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="tel" name="phone" placeholder="Your Phone Number" required>
+
+<input type="text" name="subject" placeholder="Subject" required>
+
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+<button class="submit-btn" type="submit">Send Message</button>
+
+<p id="formStatus"></p>
+
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>NORETSORET University of Nairobi</p>
+<p>Telephone: 0768046206, 0717495802</p>
+<p>Email: uonnoresoret@gmail.com © <script>document.write(new Date().getFullYear())</script></p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({ once:false });
+
+function toggleMenu(){
+document.getElementById("sideMenu").classList.toggle("active");
+}
+
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+
+form.addEventListener("submit", async function(e){
+e.preventDefault();
+
+const data = new FormData(form);
+
+status.textContent = "Sending...";
+status.className = "";
+
+try {
+const response = await fetch(form.action, {
+method: "POST",
+body: data,
+headers: { 'Accept': 'application/json' }
+});
+
+if (response.ok) {
+status.textContent = "✅ Message sent successfully!";
+status.className = "success";
+form.reset();
+} else {
+status.textContent = "❌ Something went wrong.";
+status.className = "error";
+}
+
+} catch (error) {
+status.textContent = "❌ Network error.";
+status.className = "error";
+}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noretsoret Full Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GENERAL RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:50px 20px;
+}
+
+/* ================= PAGE TITLE ================= */
+h1{
+    text-align:center;
+    margin-bottom:50px;
+    color:#1e3c72;
+    font-size:32px;
+}
+
+/* ================= GALLERY GRID ================= */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= IMAGE STYLING ================= */
+.gallery-grid img{
+    width:100%;              /* Full width of grid column */
+    height:260px;            /* Same height for ALL images */
+    object-fit:cover;        /* Keeps ratio & fills box (no stretching) */
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    transition:0.4s ease;
+    cursor:pointer;
+}
+
+/* Hover effect */
+.gallery-grid img:hover{
+    transform:scale(1.06);
+}
+
+/* ================= BACK BUTTON ================= */
+.back-btn{
+    display:block;
+    margin:60px auto 0;
+    padding:14px 30px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    width:220px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#162d56;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Full Gallery</h1>
+
+<div class="gallery-grid">
+
+    <img src="images/15.jpeg" alt="Noretsoret Event Photo 1">
+    <img src="images/16.jpeg" alt="Noretsoret Event Photo 2">
+    <img src="images/19.jpeg" alt="Noretsoret Event Photo 3">
+    <img src="images/20.jpeg" alt="Noretsoret Event Photo 4">
+    <img src="images/23.jpeg" alt="Leadership Photo 1">
+    <img src="images/24.jpeg" alt="Leadership Photo 2">
+    <img src="images/ALL1.jpeg" alt="Leadership Photo 3">
+    <img src="images/30.jpeg" alt="Leadership Photo 4">
+    <img src="images/all10.jpeg" alt="Leadership Photo 4">
+    <img src="images/all11.jpeg" alt="Leadership Photo 4">
+    <img src="images/all12.jpeg" alt="Leadership Photo 4">
+    <img src="images/all13.jpeg" alt="Leadership Photo 4">
+    <img src="images/all4.jpeg" alt="Leadership Photo 4">
+    <img src="images/all5.jpeg" alt="Leadership Photo 4">
+    <img src="images/all7.jpeg" alt="Leadership Photo 4">
+    <img src="images/all8.jpeg" alt="Leadership Photo 4">
+    <img src="images/all9.jpeg" alt="Leadership Photo 4">
+    <img src="images/m12.jpeg" alt="Leadership Photo 4">
+    <img src="images/m2 - Copy.jpeg" alt="Leadership Photo 4">
+    <img src="images/m23 - Copy (2).jpeg" alt="Leadership Photo 4">
+    <img src="images/m18.jpeg" alt="Leadership Photo 4">
+    <img src="images/m17.jpeg" alt="Leadership Photo 4">
+    <img src="images/m9.jpeg" alt="Leadership Photo 4">
+    <img src="images/all9.jpeg" alt="Leadership Photo 4">
+    <img src="images/m14.jpeg" alt="Leadership Photo 4">
+    <img src="images/m13.jpeg" alt="Leadership Photo 4">
+    <img src="images/all5.jpeg" alt="Leadership Photo 4">
+    <img src="images/m16.jpeg" alt="Leadership Photo 4">
+    <img src="images/m19.jpeg" alt="Leadership Photo 4">
+    <img src="images/m8 - Copy.jpeg" alt="Leadership Photo 4">
+    <img src="images/m4.jpeg" alt="Leadership Photo 4">
+    <img src="images/m5.jpeg" alt="Leadership Photo 4">
+</div>
+
+<a href="index.html" class="back-btn">Back to Home</a>
+
+</body>
+</html>
